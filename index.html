@@ -1,17 +1,18 @@
-<!-- index.html -->
+t<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quarterly Capacity Calculator</title>
+  <title>Quarterly Capacity Estimator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
     <h1>Quarterly Capacity Calculator</h1>
-
-    <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+    <hr>
+    <h2>Instructions: Add your team size, average rolling velocity from 6 closed sprints, and sum of all days your team will be unavailable to get an estimated story point range for the quarter.</h2>
+    <p>
       Assumes each engineer contributes <strong>60 hours per sprint</strong> and each OOO day reduces availability by <strong>6 hours</strong>.
     </p>
 
@@ -19,9 +20,13 @@
       <label>Number of Engineers</label>
       <input type="number" id="teamSize" />
 
+      <br>
+      
       <label>Total OOO Days (Team Total)</label>
       <input type="number" id="oooDays" />
 
+      <br>
+      
       <label>Team Velocity (Points per Sprint)</label>
       <input type="number" id="velocity" />
 
