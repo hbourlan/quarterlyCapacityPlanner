@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="header">
-      <h1>Capacity Estimator</h1>
-      <p>Use this to build a baseline estimation for your team's upcoming Sprint.</p>
+      <h1>Quarterly Capacity Estimator</h1>
+      <p>Use this to build a baseline estimation for your team's upcoming Quarter</p>
     </div>
 
     <div class="form">
@@ -21,7 +21,7 @@
           <br />
 
           <label for="velocityInput">
-            What's the average velocity?
+            What's the average velocity from the last 6 sprints?
             <input type="number" id="velocityInput" min="1" required />
           </label>
 
@@ -43,17 +43,6 @@
               <br />
             </div>
           </div>
-
-          <label for="removeDaysInput">
-            How many days <b>collectively</b> should be removed?
-            <input type="number" id="removeDaysInput" min="0" />
-          </label>
-
-          <label for="rolloverInput">
-            How many roll-over points should be deducted (Include only remaining effort, not full story points)?
-            <input type="number" id="rolloverInput" min="0" />
-          </label>
-          <br />
         </fieldset>
         <br />
         <button type="submit" id="calculateButton">Calculate</button>
@@ -64,9 +53,9 @@
     <div id="results">
       <h2>Recommended Capacity</h2>
       <hr />
-      <p id="aggressive (used when adding new teammates)"></p>
+      <p id="aggressive (used when adding a new teammate)"></p>
       <p id="standard"></p>
-      <p id="mild (used when losing a teammate or high probability of under-estimation)"></p>
+      <p id="mild (used when losing a teammate)"></p>
     </div>
   </body>
 </html>
