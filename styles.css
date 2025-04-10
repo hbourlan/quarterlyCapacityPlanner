@@ -11,7 +11,7 @@ label {
 
 .header {
   padding: 1rem;
-  background-color: #6F3096;
+  background-color: #E0B0FF;
   color: #fff;
   text-align: center;
   text-shadow: black 2px 2px;
@@ -23,7 +23,7 @@ label {
 }
 
 #calculateButton {
-  background-color: #006655;
+  background-color: #E0B0FF;
   color: #fff;
   text-decoration: none;
   padding: 0.5rem;
@@ -41,7 +41,7 @@ legend {
 
 #results {
   padding: 2em;
-  background-color: #006655;
+  background-color: #E0B0FF;
   color: #fff;
 }
 
