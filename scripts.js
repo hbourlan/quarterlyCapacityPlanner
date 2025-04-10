@@ -8,20 +8,21 @@ function calculateCapacity() {
   const hoursPerDay = 6;
   const hoursPerSprintPerPerson = 60;
 
+  //error message if team size or velocity is missing
   if (teamSize <= 0 || velocity <= 0) {
     document.getElementById("results").innerHTML = `<p>Please enter valid inputs for team size and velocity.</p>`;
     return;
   }
 
-  const totalHoursPerSprint = teamSize * hoursPerSprintPerPerson;
-  const totalAvailableHours = totalHoursPerSprint * sprints - oooDays * hoursPerDay;
-  const avgHoursPerPoint = totalHoursPerSprint / velocity;
+  const totalHoursPerSprint = teamSize * hoursPerSprintPerPerson; //get total hours of team
+  const totalAvailableHours = totalHoursPerSprint * sprints - oooDays * hoursPerDay; //deduct OOO days from total hours of team
+  const avgHoursPerPoint = totalHoursPerSprint / velocity; //get average hours per point based on velocity
 
-  const maxQuarterCapacity = velocity * sprints;
-  const adjustedQuarterCapacity = totalAvailableHours / avgHoursPerPoint;
+  const maxQuarterCapacity = velocity * sprints; //get max velocity for the quarter based on average velocity
+  const adjustedQuarterCapacity = totalAvailableHours / avgHoursPerPoint; //get max number of actual availability in points
 
-  const maxWithVariance = maxQuarterCapacity * 0.8;
-  const adjustedWithVariance = adjustedQuarterCapacity * 0.8;
+  const maxWithVariance = maxQuarterCapacity * 0.8; //get 80% capacity
+  const adjustedWithVariance = adjustedQuarterCapacity * 0.8; //get 80% capacity
 
   const recommendedRange = [
     Math.round(adjustedWithVariance),
