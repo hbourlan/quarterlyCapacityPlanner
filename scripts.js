@@ -1,3 +1,7 @@
+// add event listener to form
+formResults.addEventListener("submit", function(event){
+  event.preventDefault(); // prevent form from submitting
+
 // import form data
 function calculateCapacity() {
   const teamSize = Number(document.getElementById("teamSize").value); //confirm input id
