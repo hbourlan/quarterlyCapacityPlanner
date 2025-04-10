@@ -1,8 +1,8 @@
 // script.js
 function calculateCapacity() {
-  const teamSize = Number(document.getElementById("teamSize").value);
-  const oooDays = Number(document.getElementById("oooDays").value);
-  const velocity = Number(document.getElementById("velocity").value);
+  const teamSize = Number(document.getElementById("engineersInput").value);
+  const oooDays = Number(document.getElementById("removeDaysInput").value);
+  const velocity = Number(document.getElementById("velocityInput").value);
 
   const sprints = 6;
   const hoursPerDay = 6;
