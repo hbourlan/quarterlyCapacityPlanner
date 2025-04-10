@@ -1,25 +1,30 @@
-// script.js
+// import form data
 function calculateCapacity() {
-  const teamSize = Number(document.getElementById("teamSize").value);
-  const oooDays = Number(document.getElementById("oooDays").value);
-  const velocity = Number(document.getElementById("velocity").value);
+  const teamSize = Number(document.getElementById("teamSize").value); //confirm input id
+  const oooDays = Number(document.getElementById("oooDays").value); // confirm input id
+  const velocity = Number(document.getElementById("velocity").value); // confirm input id
   const holidays = Number(document.getElementById("addHolidaysInput").value);
 
   const sprints = 6;
-  const hoursPerDay = 6;
-  const hoursPerSprintPerPerson = 60;
+  const sprintLength = 10;
 
+  //return error if teamSize or velocity are less than 1
   if (teamSize <= 0 || velocity <= 0) {
     document.getElementById("results").innerHTML = `<p>Please enter valid inputs for team size and velocity.</p>`;
     return;
   }
 
-  const totalHoursPerSprint = teamSize * hoursPerSprintPerPerson;
-  const totalAvailableHours = totalHoursPerSprint * sprints - oooDays * hoursPerDay;
-  const avgHoursPerPoint = totalHoursPerSprint / velocity;
+  //Get max capacity for quarter (6 sprints)
+  const maxQuarterCapacity = velocity * sprints; // get total points for 6 sprints
 
-  const maxQuarterCapacity = velocity * sprints;
-  const adjustedQuarterCapacity = totalAvailableHours / avgHoursPerPoint;
+  //Get capacity variances from inputs
+  const pointsPerPerson = velocity / teamSize; // get the average points per person per sprint
+  const pointsPerDay = pointsPerPerson / sprintLength; //get the average points per day
+  const oooAdjustment = oooDays * pointsPerDay;
+  const holidayAdjustment = (holidays * pointsPerDay) * teamSize;
+  const totalAdjustments = oooAdjustment + holidayAdjustment;
+  
+  const adjustedQuarterCapacity = maxQuarterCapacity - totalAdjustments;
 
   const maxWithVariance = maxQuarterCapacity * 0.8;
   const adjustedWithVariance = adjustedQuarterCapacity * 0.8;
