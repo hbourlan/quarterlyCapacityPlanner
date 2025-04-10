@@ -3,6 +3,7 @@ function calculateCapacity() {
   const teamSize = Number(document.getElementById("teamSize").value);
   const oooDays = Number(document.getElementById("oooDays").value);
   const velocity = Number(document.getElementById("velocity").value);
+  const holidays = Number(document.getElementById("addHolidaysInput").value);
 
   const sprints = 6;
   const hoursPerDay = 6;
