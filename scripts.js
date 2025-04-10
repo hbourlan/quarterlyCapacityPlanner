@@ -3,9 +3,9 @@ document.getElementById("form").addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form submission (page reload)
 
   // Get input values
-  const teamSize = Number(document.getElementById("teamSize").value); // Team size
-  const oooDays = Number(document.getElementById("oooDays").value); // OOO days
-  const velocity = Number(document.getElementById("velocity").value); // Average velocity
+  const velocity = Number(document.getElementById("velocityInput").value); // Average velocity
+  const teamSize = Number(document.getElementById("teamSizeInput").value); // Team size
+  const oooDays = Number(document.getElementById("removeDaysInput").value); // OOO days
   const holidays = Number(document.getElementById("addHolidaysInput").value); // Holidays
 
   // Validation check
