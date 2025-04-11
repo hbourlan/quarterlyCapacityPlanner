@@ -20,12 +20,13 @@ formResults.addEventListener("submit", function(event){
   }
 
   calculateRecommendedCapacity(velocity, teamSize, oooDays, holidays);
-}); //stopping point
+});
 
 
-  // Constants
-  const sprints = 6; // Number of sprints (quarterly capacity)
-  const sprintLength = 10; // Sprint length in days (default 2 weeks = 10 days)
+function calculateRecommendedCapacity(velocity, teamSize, oooDays, holidays){
+  
+  const sprints = 6;
+  const sprintLength = 10;
 
   const maxQuarterCapacity = velocity * sprints; // Calculate max capacity for the quarter (6 sprints)
 
@@ -37,16 +38,16 @@ formResults.addEventListener("submit", function(event){
   const oooAdjustment = oooDays * pointsPerDay;
   const holidayAdjustment = holidays * pointsPerDay * teamSize;
 
-  const totalAdjustments = oooAdjustment + holidayAdjustment;   // Total adjustments
-  const adjustedQuarterCapacity = maxQuarterCapacity - totalAdjustments;  // Adjusted quarter capacity
+  const totalAdjustments = oooAdjustment + holidayAdjustment; 
+  const adjustedQuarterCapacity = maxQuarterCapacity - totalAdjustments;
 
-  // Apply 80% variance to max and adjusted capacities
+  // Apply 20% variance to max and adjusted capacities
   const maxWithVariance = maxQuarterCapacity * 0.8;
   const adjustedWithVariance = adjustedQuarterCapacity * 0.8;
 
-  // Display results
+  // Send to UI
   document.getElementById("maxCapacity").textContent = `Max Quarter Capacity: ${maxQuarterCapacity.toFixed(1)} story points`;
   document.getElementById("adjustedCapacity").textContent = `Adjusted Capacity: ${adjustedQuarterCapacity.toFixed(1)} story points`;
   document.getElementById("maxWithVariance").textContent = `Max with Variance (80%): ${maxWithVariance.toFixed(1)} story points`;
   document.getElementById("adjustedWithVariance").textContent = `Adjusted with Variance (80%): ${adjustedWithVariance.toFixed(1)} story points`;
-});
+};
