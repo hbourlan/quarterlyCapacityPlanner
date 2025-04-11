@@ -1,4 +1,4 @@
-// Event listener for form submission
+// import form data
 const formResults = document.getElementById("form");
 
 let velocity, teamSize, oooDays, holidays;
@@ -7,17 +7,11 @@ let velocity, teamSize, oooDays, holidays;
 formResults.addEventListener("submit", function(event){
   event.preventDefault(); // prevent form from submitting
 
-  // Access form elements
+  // access form elements
   velocity = document.getElementById("velocityInput").value;
   teamSize = document.getElementById("teamSizeInput").value;
   oooDays = document.getElementById("removeDaysInput").value;
   holidays = document.getElementById("addHolidaysInput").value;
-
-  // Input validation check
-  if (teamSize <= 0 || velocity <= 0) {
-    document.getElementById("results").innerHTML = "<p>Please enter valid inputs for team size and velocity.</p>";
-    return;
-  }
 
   calculateRecommendedCapacity(velocity, teamSize, oooDays, holidays);
 });
@@ -27,7 +21,6 @@ function calculateRecommendedCapacity(velocity, teamSize, oooDays, holidays){
   
   const sprints = 6;
   const sprintLength = 10;
-
   const maxQuarterCapacity = velocity * sprints; // Calculate max capacity for the quarter (6 sprints)
 
   // Calculate average points per person and per day
