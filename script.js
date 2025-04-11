@@ -39,7 +39,7 @@ function calculateRecommendedCapacity(velocity, teamSize, oooDays, holidays){
   const adjustedWithVariance = adjustedQuarterCapacity * 0.8;
 
   // Send to UI
-  document.getElementById("adjustedCapacity").textContent = `Max Capacity: ${maxQuarterCapacity.toFixed(1)}`;
+  document.getElementById("maxQuarterCapacity").textContent = `Max Capacity: ${maxQuarterCapacity.toFixed(1)}`;
   document.getElementById("maxWithVariance").textContent = `Max Available Capacity: ${adjustedQuarterCapacity.toFixed(1)}`;
   document.getElementById("adjustedWithVariance").textContent = `Available Capacity With Reserve: ${adjustedWithVariance.toFixed(1)}`;
 };
